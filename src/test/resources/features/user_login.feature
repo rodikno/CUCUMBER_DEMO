@@ -11,3 +11,9 @@ Feature: Arithmetic Operations
     And the second number is 8
     When the user subtracts the second number from the first
     Then the result should be 7
+
+  Scenario: Divide two numbers
+    Given the first number is 70
+    And the second number is 35
+    When the user divides the first number by the second
+    Then the result should be 2

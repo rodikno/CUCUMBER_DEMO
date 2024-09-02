@@ -9,6 +9,7 @@ public class UserLoginSteps {
 
     private String username;
     private String password;
+    private String email;
 
     @Given("the user is on the login page")
     public void theUserIsOnTheLoginPage() {
@@ -46,5 +47,13 @@ public class UserLoginSteps {
         this.username = username;
         this.password = password;
         System.out.println("User enters the username: " + username + " and password: " + password);
+    }
+
+    @When("the user enters the username {string} and the password {string} and the email {string}")
+    public void theUserEntersTheUsernameAndThePasswordAndTheEmail(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        System.out.println("User enters the username: " + username + " and password: " + password + " and email: " + email);
     }
 }

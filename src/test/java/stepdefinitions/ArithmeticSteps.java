@@ -40,4 +40,10 @@ public class ArithmeticSteps {
         Assert.assertEquals(result, expectedResult, "The result does not match the expected value.");
         System.out.println("The result matches the expected value: " + expectedResult);
     }
+
+    @When("the user divides the first number by the second")
+    public void theUserDividesTheSecondNumberFromTheFirst() {
+        this.result = firstNumber / secondNumber;
+        System.out.println("The difference between the two numbers is: " + result);
+    }
 }

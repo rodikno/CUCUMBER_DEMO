@@ -1,7 +1,7 @@
 Feature: Arithmetic Operations
 
   # Given, When, Then, And, But
-  Scenario: Add two numbers
+  Scenario: Add two number
     Given the first number is 5
     And the second number is 7
     When the user adds the two numbers
