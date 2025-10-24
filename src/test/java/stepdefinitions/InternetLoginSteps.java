@@ -11,16 +11,14 @@ import pages.SecureAreaPage;
 
 public class InternetLoginSteps {
 
-    private WebDriver driver() {
-        return Hooks.driver;
-    }
+    WebDriver browser = Hooks.driver;
 
     private LoginPage loginPage() {
-        return new LoginPage(driver());
+        return new LoginPage(browser);
     }
 
     private SecureAreaPage securePage() {
-        return new SecureAreaPage(driver());
+        return new SecureAreaPage(browser);
     }
 
     @Given("I am on the Internet Herokuapp login page")
@@ -37,7 +35,7 @@ public class InternetLoginSteps {
 
     @Then("I should see a success message containing {string}")
     public void iShouldSeeASuccessMessageContaining(String expected) {
-        String text = securePage().getFlashText();
+        String text = securePage().getWelcomeText();
         Assert.assertTrue(text.contains(expected),
                 "Expected success message to contain: '" + expected + "' but was: '" + text + "'");
         Assert.assertTrue(securePage().isLoaded(), "User is not on the secure area page");
@@ -52,7 +50,7 @@ public class InternetLoginSteps {
 
     @And("the URL should contain {string}")
     public void theURLShouldContain(String part) {
-        Assert.assertTrue(driver().getCurrentUrl().contains(part),
-                "Expected URL to contain '" + part + "' but was '" + driver().getCurrentUrl() + "'");
+        Assert.assertTrue(browser.getCurrentUrl().contains(part),
+                "Expected URL to contain '" + part + "' but was '" + browser.getCurrentUrl() + "'");
     }
 }
