@@ -1,3 +1,4 @@
+@browser
 # Demonstrates: Background + Scenario Outline + tagged Examples + reuse of existing step definitions
 Feature: Internet Herokuapp Login via Scenario Outlines
   As a student, I want to see how Scenario Outline and tagged Examples work

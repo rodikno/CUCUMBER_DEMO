@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class Hooks {
     public static WebDriver driver;
 
-    @Before
+    @Before("@browser")
     public void setUp() {
         if (driver == null) {
             WebDriverManager.chromedriver().setup();
@@ -23,7 +23,7 @@ public class Hooks {
         }
     }
 
-    @After
+    @After("@browser")
     public void tearDown() {
         if (driver != null) {
             driver.quit();

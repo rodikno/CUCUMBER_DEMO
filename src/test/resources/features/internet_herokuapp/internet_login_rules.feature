@@ -1,3 +1,4 @@
+@browser
 # Demonstrates: Rule sections + Rule-scoped Backgrounds + reuse of same steps
 Feature: Internet Herokuapp Login organized by business rules
   In order to keep scenarios focused, we can group them into rules

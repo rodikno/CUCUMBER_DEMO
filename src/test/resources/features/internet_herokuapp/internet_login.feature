@@ -1,3 +1,4 @@
+@browser
 Feature: Internet Herokuapp Login
   As a user of the Internet Herokuapp
   I want to login to the secure area

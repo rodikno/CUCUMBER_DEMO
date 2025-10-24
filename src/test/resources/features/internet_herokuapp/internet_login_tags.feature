@@ -1,5 +1,5 @@
 # Demonstrates: Feature-level tags, Scenario tags, and selective execution by tag
-@ui @internet @login
+@browser @ui @internet @login
 Feature: Internet Herokuapp Login with tagging strategies
   Teams can slice the suite by tags to form smoke/regression suites or to focus work-in-progress.
 
