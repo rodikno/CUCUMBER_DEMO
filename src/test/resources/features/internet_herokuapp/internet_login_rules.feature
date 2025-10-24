@@ -11,7 +11,7 @@ Feature: Internet Herokuapp Login organized by business rules
     @positive @smoke
     Scenario: Tom logs in successfully
       When I login with username "tomsmith" and password "SuperSecretPassword!"
-      Then I should see a success message containing "Welcome to the Secure Area. When you are done click logout below."
+      Then I should see a success message containing "You logged into a secure area!"
       And the URL should contain "/secure"
 
   Rule: Invalid credentials are rejected

@@ -35,9 +35,10 @@ public class InternetLoginSteps {
 
     @Then("I should see a success message containing {string}")
     public void iShouldSeeASuccessMessageContaining(String expected) {
-        String text = securePage().getWelcomeText();
-        Assert.assertTrue(text.contains(expected),
-                "Expected success message to contain: '" + expected + "' but was: '" + text + "'");
+        String securePageFlashMessage = securePage().getFlashText();
+        Assert.assertTrue(securePageFlashMessage.contains(expected),
+                "Expected success message to contain: '" + expected + "' but was: '" + securePageFlashMessage + "'");
+
         Assert.assertTrue(securePage().isLoaded(), "User is not on the secure area page");
     }
 

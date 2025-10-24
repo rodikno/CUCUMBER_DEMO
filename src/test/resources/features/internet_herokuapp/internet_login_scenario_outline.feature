@@ -10,7 +10,7 @@ Feature: Internet Herokuapp Login via Scenario Outlines
   @smoke @outline @positive
   Scenario Outline: Successful login with multiple valid users
     When I login with username "<username>" and password "<password>"
-    Then I should see a success message containing "Welcome to the Secure Area. When you are done click logout below."
+    Then I should see a success message containing "You logged into a secure area!"
     And the URL should contain "/secure"
 
     # You can tag a specific Examples block. Tags on Examples only affect the rows in that table
