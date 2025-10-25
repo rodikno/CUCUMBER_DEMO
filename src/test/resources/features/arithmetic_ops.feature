@@ -12,3 +12,9 @@ Feature: Arithmetic Operations
     And the second number is 8
     When the user subtracts the second number from the first
     Then the result should be 7
+
+  Scenario: Add two negative numbers
+    Given the first number is -10
+    And the second number is -90
+    When the user adds the two numbers
+    Then the result should be -100
