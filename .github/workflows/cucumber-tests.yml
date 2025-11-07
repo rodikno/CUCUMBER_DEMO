@@ -65,4 +65,5 @@ jobs:
           path: |
             target/surefire-reports/**
             target/cucumber-reports.html
+            target/screenshots/**
           if-no-files-found: warn
