@@ -1,3 +1,4 @@
+@backend
 Feature: Cookie Eating Contest
 
   Background:

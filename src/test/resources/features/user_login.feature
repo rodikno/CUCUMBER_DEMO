@@ -1,3 +1,4 @@
+@backend
 Feature: Arithmetic Operations
 
   Scenario: Add two numbers

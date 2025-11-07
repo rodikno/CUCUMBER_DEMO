@@ -1,3 +1,4 @@
+@backend
 Feature: Magical Creature Adoption
 
   Background:

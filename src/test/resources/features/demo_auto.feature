@@ -1,3 +1,4 @@
+@backend
 Feature: Demonstration for Auto QA lesson
 
   Scenario: Cukes on the table

@@ -1,3 +1,4 @@
+@backend
 Feature: Login functionality
 
   Scenario Outline: Login with valid credentials
