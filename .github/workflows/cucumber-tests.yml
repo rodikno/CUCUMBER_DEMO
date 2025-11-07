@@ -1,0 +1,68 @@
+name: Cucumber Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: "Which tests to run"
+        required: true
+        default: "all"
+        type: choice
+        options:
+          - all
+          - ui
+          - backend
+
+jobs:
+  tests:
+    name: Run ${{ github.event.inputs.suite }} tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: 'maven'
+
+      # Install Google Chrome for Selenium UI tests
+      - name: Set up Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Show Chrome version
+        run: |
+          google-chrome --version || true
+
+      - name: Determine tag filter
+        id: tags
+        shell: bash
+        run: |
+          suite="${{ github.event.inputs.suite }}"
+          if [[ "$suite" == "ui" ]]; then
+            echo "value=-Dcucumber.filter.tags='@ui'" >> $GITHUB_OUTPUT
+          elif [[ "$suite" == "backend" ]]; then
+            echo "value=-Dcucumber.filter.tags='@backend'" >> $GITHUB_OUTPUT
+          else
+            echo "value=" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run tests (with Xvfb for UI if needed)
+        run: |
+          echo "Selected suite: ${{ github.event.inputs.suite }}"
+          echo "Tag filter: ${{ steps.tags.outputs.value }}"
+          # Use Xvfb to provide a virtual display for non-headless Chrome
+          xvfb-run -a mvn -B -Dtest=runners.TestNGRunner test ${{ steps.tags.outputs.value }}
+
+      - name: Upload TestNG and Cucumber reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports-${{ github.run_id }}-${{ github.event.inputs.suite || 'all' }}
+          path: |
+            target/surefire-reports/**
+            target/cucumber-reports.html
+          if-no-files-found: warn
