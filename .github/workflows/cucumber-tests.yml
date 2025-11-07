@@ -50,12 +50,12 @@ jobs:
             echo "value=" >> $GITHUB_OUTPUT
           fi
 
-      - name: Run tests (with Xvfb for UI if needed)
+      - name: Run tests
         run: |
           echo "Selected suite: ${{ github.event.inputs.suite }}"
           echo "Tag filter: ${{ steps.tags.outputs.value }}"
-          # Use Xvfb to provide a virtual display for non-headless Chrome
-          xvfb-run -a mvn -B -Dtest=runners.TestNGRunner test ${{ steps.tags.outputs.value }}
+          # Headless is enabled automatically in CI by Hooks.java; no need for Xvfb
+          mvn -B -Dtest=runners.TestNGRunner test ${{ steps.tags.outputs.value }}
 
       - name: Upload TestNG and Cucumber reports
         if: always()
