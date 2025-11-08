@@ -2,8 +2,12 @@ name: Demo Workflow
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, '*rain*' ]
   pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '* * * * *'
 
 jobs:
   build_application:
