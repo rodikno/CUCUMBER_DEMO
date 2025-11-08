@@ -17,6 +17,7 @@ public class ArithmeticSteps {
         System.out.println("First number is set to: " + number);
     }
 
+
     @Given("the second number is {int}")
     public void theSecondNumberIs(Integer number) {
         this.secondNumber = number;
