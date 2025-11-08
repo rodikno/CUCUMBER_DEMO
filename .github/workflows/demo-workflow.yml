@@ -1,0 +1,25 @@
+name: Demo Workflow
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  build_application:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo from Job One
+        run: echo "Hello from Job One"
+
+  run_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo from Job Two
+        run: echo "Hello from Job Two"
+
+  deploy_app_to_production:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo from Job Three
+        run: echo "Hello from Job Three"
