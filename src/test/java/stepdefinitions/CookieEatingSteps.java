@@ -22,6 +22,7 @@ public class CookieEatingSteps {
         System.out.println(cookies + " cookies are now available on the table.");
     }
 
+
     @When("{word} eats {int} cookies")
     public void participantEatsCookies(String participant, int cookiesEaten) {
         this.participant = participant;
