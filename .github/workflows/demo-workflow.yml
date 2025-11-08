@@ -2,7 +2,7 @@ name: Demo Workflow
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, training ]
   pull_request:
 
 jobs:
