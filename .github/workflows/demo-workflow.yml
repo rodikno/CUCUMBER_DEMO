@@ -2,8 +2,10 @@ name: Demo Workflow
 
 on:
   push:
-    branches: [ main, training ]
+    branches: [ main, '*rain*' ]
   pull_request:
+    branches:
+      - main
 
 jobs:
   build_application:
